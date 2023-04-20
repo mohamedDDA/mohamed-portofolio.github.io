@@ -16,6 +16,7 @@ const savedMainColor = localStorage.getItem('main-color');
 const savedAltColor = localStorage.getItem('alt-main');
 const savedDataColor = localStorage.getItem('data-color');
 const homeImage = document.querySelector('.home .homeImage');
+let activeSpan = document.querySelector('span.active')
 const setSectionsOpacity = () => {
     sections.forEach(sec => {
         sec.style.opacity = 0;
@@ -48,7 +49,7 @@ document.getElementById('home').style.opacity = 1;
 
 
 
-let activeSpan;
+
 
 // Loop through each span element to find the matching color
 // Get all the necessary elements and values
