@@ -17,6 +17,7 @@ const savedAltColor = localStorage.getItem('alt-main');
 const savedDataColor = localStorage.getItem('data-color');
 const homeImage = document.querySelector('.home .homeImage');
 let activeSpan = document.querySelector('span.active')
+
 const setSectionsOpacity = () => {
     sections.forEach(sec => {
         sec.style.opacity = 0;
@@ -41,6 +42,18 @@ const checkImage = () => {
     }
 }
 
+// Select the first span element with class "color red" by default
+
+// Check if there is an "active" span element, and if not, set the default
+if (!activeSpan) {
+    activeSpan = spans[0];
+    activeSpan.classList.add('active');
+}
+
+
+
+
+
 checkImage()
 setSectionsOpacity();
 document.getElementById('home').style.opacity = 1;
@@ -56,6 +69,7 @@ document.getElementById('home').style.opacity = 1;
 
 
 // Define a function to update the body background image based on the current settings
+
 function updateBodyBackground() {
     const dataColor = activeSpan.getAttribute('data-color');
     if (background.value === 'image') {
@@ -75,7 +89,7 @@ spans.forEach(span => {
         activeSpan = span;
 
         // Set the home image to the corresponding URL for the saved data color
-        
+
         const homeImageUrl = `url(images/${dataColor}.png)`;
         homeImage.style.backgroundImage = homeImageUrl;
 
@@ -136,7 +150,7 @@ if (savedMainColor && savedAltColor && savedDataColor) {
     document.documentElement.style.setProperty('--alt-main', savedAltColor);
 
     // Set the home image to the corresponding URL for the saved data color
-    
+
     const homeImageUrl = `url(images/${savedDataColor}.png)`;
     homeImage.style.backgroundImage = homeImageUrl;
 
@@ -260,56 +274,85 @@ function fade(event) {
 function slide(event) {
     event.preventDefault();
 
-    const currentLink = document.querySelector('.active');
+    const currentLink = document.querySelector('header .active');
     const currentSection = document.querySelector(currentLink.getAttribute('href'));
     const targetLink = this;
     const sectionID = targetLink.getAttribute('href').replace('#', '');
     const section = document.querySelector(`#${sectionID}`);
+    const isFollowing = currentLink.compareDocumentPosition(targetLink) & Node.DOCUMENT_POSITION_FOLLOWING;
+    const animationDistance = isFollowing ? '2000px' : '-2000px';
 
     // Check if the target section is the same as the current section
     if (targetLink === currentLink) {
         return;
-    } else {
-        links.forEach(link => {
-            link.classList.remove("active");
-        });
-        this.classList.add("active");
-
-        if (currentLink.compareDocumentPosition(targetLink) & Node.DOCUMENT_POSITION_FOLLOWING) {
-            currentSection.style.transition = "1s";
-            currentSection.style.transform = "translateX(2000px)";
-            currentSection.style.zIndex = 1;
-            setTimeout(() => {
-                section.style.opacity = 1;
-                section.style.zIndex = 3;
-            }, 300);
-            currentSection.style.opacity = 0;
-            setTimeout(() => {
-                currentSection.style.transform = "translateX(0)";
-            }, 1000);
-        } else {
-            currentSection.style.transition = "1s";
-            currentSection.style.transform = "translateX(-2000px)";
-            currentSection.style.zIndex = 1;
-            setTimeout(() => {
-                section.style.opacity = 1;
-                section.style.zIndex = 3;
-            }, 300);
-            currentSection.style.opacity = 0;
-            setTimeout(() => {
-                currentSection.style.transform = "translateX(0)";
-            }, 1000);
-        }
     }
+
+    // Remove active class from all links and add it to the target link
+    links.forEach(link => {
+        link.classList.remove("active");
+    });
+    this.classList.add("active");
+
+    // Set the animation styles for the current and target sections
+    currentSection.style.cssText = `
+      transition: transform 1s, opacity 1s;
+      transform: translateX(${animationDistance});
+      opacity: 0;
+      z-index: 1;
+    `;
+    section.style.cssText = `
+      transition: opacity 1s .3s;
+      opacity: 1;
+      z-index: 3;
+    `;
+
+    // Reset the transform of the current section after the animation completes
+    setTimeout(() => {
+        currentSection.style.transform = "translateX(0)";
+    }, 1000);
+
 
 }
 
+function slider(event) {
+    event.preventDefault();
+    const slides = document.querySelectorAll('.slider .box');
+    const prevBtn = document.querySelector('.slide .left');
+    const nextBtn = document.querySelector('.slide .right');
+    const currentSlide = document.querySelector('.slider .box.active');
+    let slideIndex = Array.from(slides).indexOf(currentSlide);
 
+    function showSlide() {
+        slides.forEach(slide => {
+            slide.classList.remove('active');
+        });
+        slides[slideIndex].classList.add('active');
+    }
 
+    function slideToNext() {
+        slideIndex++;
+        if (slideIndex >= slides.length) {
+            slideIndex = 0;
+        }
+        showSlide();
+    }
 
+    function slideToPrev() {
+        slideIndex--;
+        if (slideIndex < 0) {
+            slideIndex = slides.length - 1;
+        }
+        showSlide();
+    }
 
+    prevBtn.addEventListener('click', slideToPrev);
+    nextBtn.addEventListener('click', slideToNext);
+}
 
-
+const icons = document.querySelectorAll('.slide i');
+icons.forEach(icon => {
+    icon.addEventListener('click', slider);
+});
 
 checkbox.checked = darkMode === 'true';
 html.classList.toggle('dark-mode', checkbox.checked);
@@ -335,11 +378,9 @@ document.addEventListener('click', (event) => {
 
 aboutLink.addEventListener('click', (event) => {
     event.preventDefault();
-
     skillProgs.forEach(skillProg => {
         const progValue = skillProg.dataset.prog;
-        skillProg.style.transition = 'width 2s linear';
-        skillProg.style.width = `${progValue}%`;
+        skillProg.style.width = `${progValue}`;
     });
 });
 
@@ -347,7 +388,6 @@ links.forEach(link => {
     link.addEventListener('click', () => {
         if (link.getAttribute('href') !== '#about') {
             skillProgs.forEach(skillProg => {
-                skillProg.style.transition = 'width 0.5s linear';
                 skillProg.style.width = '0%';
             });
         }
