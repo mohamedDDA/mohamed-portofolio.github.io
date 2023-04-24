@@ -5,17 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
     <title>Portofolio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <link rel="stylesheet" href="css/all.min.css">
     <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/framework.css">
-
     <link rel="stylesheet" href="css/media.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -138,7 +136,55 @@
 
         <section class="review" id="review">
             <div class="container">
-
+                <div class="reviews">
+                    <div class="heading">Our Custmers <span>Review</span></div>
+                    <div class="slider">
+                        <div class="box active">
+                            <div class="identity">
+                                <div class="avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </div>
+                                <span class="name">Ali Ahmed</span>
+                            </div>
+                            <p>"Mohammed is a prominent and innovative web developer, as well as being flexible and
+                                providing fast service. I hope that we can collaborate on another project."</p>
+                        </div>
+                        <div class="box">
+                            <div class="identity">
+                                <div class="avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </div>
+                                <span class="name">Ali Ahmed</span>
+                            </div>
+                            <p>"ahmed is a prominent and innovative web developer, as well as being flexible and
+                                providing fast service. I hope that we can collaborate on another project."</p>
+                        </div>
+                        <div class="box">
+                            <div class="identity">
+                                <div class="avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </div>
+                                <span class="name">Ali Ahmed</span>
+                            </div>
+                            <p>"ali is a prominent and innovative web developer, as well as being flexible and
+                                providing fast service. I hope that we can collaborate on another project."</p>
+                        </div>
+                        <div class="box">
+                            <div class="identity">
+                                <div class="avatar">
+                                    <img src="images/avatar.jpg" alt="">
+                                </div>
+                                <span class="name">Ali Ahmed</span>
+                            </div>
+                            <p>"hema is a prominent and innovative web developer, as well as being flexible and
+                                providing fast service. I hope that we can collaborate on another project."</p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <i class="fa-solid fa-arrow-left left"></i>
+                        <i class="fa-solid fa-arrow-right right"></i>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -148,25 +194,25 @@
                     <div class="skill">
                         <div class="skill-name">HTML</div>
                         <div class="prog">
-                            <div class="skill-prog" data-prog="100"></div>
+                            <div class="skill-prog" data-prog="100%"></div>
                         </div>
                     </div>
                     <div class="skill">
                         <div class="skill-name">CSS</div>
                         <div class="prog">
-                            <div class="skill-prog" data-prog="95"></div>
+                            <div class="skill-prog" data-prog="95%"></div>
                         </div>
                     </div>
                     <div class="skill">
                         <div class="skill-name">JS</div>
                         <div class="prog">
-                            <div class="skill-prog" data-prog="80"></div>
+                            <div class="skill-prog" data-prog="80%"></div>
                         </div>
                     </div>
                     <div class="skill">
                         <div class="skill-name">NodeJs</div>
                         <div class="prog">
-                            <div class="skill-prog" data-prog="60"></div>
+                            <div class="skill-prog" data-prog="60%"></div>
                         </div>
                     </div>
                 </div>
@@ -199,12 +245,59 @@
                     have extensive skills in <span>HTML</span> and <span>CSS</span>, and a strong foundation in
                     <span>JavaScript</span>.
                 </p>
+                <div class="statics">
+                    <div class="stats">
+                        <div data-statics="01">01</div><span>Exprience Years</span>
+                    </div>
+                    <div class="stats">
+                        <div data-statics="08">08</div><span>No. Projects</span>
+                    </div>
+                    <div class="stats">
+                        <div data-statics="04">04</div><span>Clients</span>
+                    </div>
+                </div>
             </div>
         </section>
 
         <section class="contact" id="contact">
             <div class="container">
-            </div>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <div class="heading">
+                            <h3>Contact Info</h3>
+                        </div>
+                        <div class="info">
+                            <div><i class="fa-regular fa-envelope"></i>
+                                <span>mohammed.web.dev1@gmail.com</span>
+                            </div>
+                            <div><i class="fa-solid fa-phone"></i><span ">+20 109-945-2977</span></div>
+                        </div>
+                        <div class=" social-media">
+                                    <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                                    <a target="_blank" href="https://wa.me/201099452977"><i
+                                            class="fa-brands fa-whatsapp"></i></a>
+                                    <a target="_blank" href="https://t.me/mohammedwae1"><i
+                                            class="fa-brands fa-telegram"></i></a>
+                            </div>
+                        </div>
+                        <div class="get-in">
+                            <div class="heading">
+                                Get In Touch
+                            </div>
+                            <div class="message">
+                                <form action="/submit-form" method="POST" id="email-form">
+                                    <label for="name"></label>
+                                    <input type="text" id="name" name="name" placeholder="Name" required>
+                                    <label for="email"></label>
+                                    <input type="email" id="email" name="email" placeholder="Email" required>
+                                    <label for="message"></label>
+                                    <textarea id="message" name="message" placeholder="Message" required></textarea>
+                                    <button type="submit">Send</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
         </section>
         <header>
             <nav>
@@ -216,49 +309,51 @@
             </nav>
 
         </header>
-        <div class="social">
+    </div>
+    <div class="social">
+        <ul>
+            <li><a href="https://github.com/mohamedDDA" target="_blank" class="social-icon"><i
+                        class="fa-brands fa-square-github"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/mohamed-wael-035423264/" target="_blank" class="social-icon"><i
+                        class="fa-brands fa-linkedin"></i></a>
+            </li>
+        </ul>
+    </div>
+    <div class="settings">
+        <div class="set-list">
             <ul>
-                <li><a href="https://github.com/mohamedDDA" target="_blank" class="social-icon"><i
-                            class="fa-brands fa-square-github"></i></a></li>
-                <li><a href="https://www.linkedin.com/in/mohamed-wael-035423264/" target="_blank" class="social-icon"><i
-                            class="fa-brands fa-linkedin"></i></a>
+                <li class="dark">Dark Mode <input type="checkbox" name=""></li>
+                <li class="color">Color
+                    <span class="red" data-main="#FE1F27" data-alt="#750B0A" data-color="red"></span>
+                    <span class="cyan" data-main="#3dcfda" data-alt="#1f5c79" data-color="cyan"></span>
+                    <span class="purble" data-main="#933dda" data-alt="#592583" data-color="purble"></span>
+                </li>
+                <li class="transition"> <label for="transition">Transition:</label>
+                    <select id="transition" name="transition">
+                        <option value="slide">Slide</option>
+                        <option value="fade">Fade</option>
+                    </select>
+                </li>
+                <li class="border"> <label for="border">Border:</label>
+                    <select id="border" name="border">
+                        <option value="none">None</option>
+                        <option value="normal">Normal</option>
+                        <option value="animated">Animated</option>
+                    </select>
+                </li>
+                <li class="background"> <label for="background">Background:</label>
+                    <select id="background" name="background">
+                        <option value="image">Image</option>
+                        <option value="plane">Plane</option>
+                    </select>
                 </li>
             </ul>
         </div>
-        <div class="settings">
-            <div class="set-list">
-                <ul>
-                    <li class="dark">Dark Mode <input type="checkbox" name=""></li>
-                    <li class="color">Color
-                        <span class="red" data-main="#FE1F27" data-alt="#750B0A" data-color="red"></span>
-                        <span class="cyan" data-main="#3dcfda" data-alt="#1f5c79" data-color="cyan"></span>
-                        <span class="purble" data-main="#933dda" data-alt="#592583" data-color="purble"></span>
-                    </li>
-                    <li class="transition"> <label for="transition">Transition:</label>
-                        <select id="transition" name="transition">
-                            <option value="slide">Slide</option>
-                            <option value="fade">Fade</option>
-                        </select>
-                    </li>
-                    <li class="border"> <label for="border">Border:</label>
-                        <select id="border" name="border">
-                            <option value="none">None</option>
-                            <option value="normal">Normal</option>
-                            <option value="animated">Animated</option>
-                        </select>
-                    </li>
-                    <li class="background"> <label for="background">Background:</label>
-                        <select id="background" name="background">
-                            <option value="image">Image</option>
-                            <option value="plane">Plane</option>
-                        </select>
-                    </li>
-                </ul>
-            </div>
-            <div class="set-icon"><i class="fa-solid fa-gear"></i></div>
-        </div>
+        <div class="set-icon"><i class="fa-solid fa-gear"></i></div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="script.js"></script>
+    <script src="form.js"></script>
 </body>
 
 </html>
