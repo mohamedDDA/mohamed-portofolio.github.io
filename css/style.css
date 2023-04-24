@@ -1,4 +1,5 @@
 html {
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
@@ -23,7 +24,7 @@ a {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Noto Sans', sans-serif;
 }
 
 :root {
@@ -80,6 +81,8 @@ body {
   gap: 10px;
   width: 100%;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
   padding: 20px;
   position: relative;
 }
@@ -299,25 +302,6 @@ section .border-animated * {
   z-index: 50;
 }
 
-section .border-animated::before {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  height: 30%;
-  background-color: var(--main-color);
-  animation: rotate 4s linear infinite;
-}
-
-section .border-animated::after {
-  content: ' ';
-  position: absolute;
-  background-color: var(--background);
-  inset: 5px;
-  border-radius: 20px;
-}
 
 .home {
   opacity: 100%;
@@ -363,7 +347,6 @@ section .border-animated::after {
 
 
 .projects .container {
-  overflow-y: scroll;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -371,12 +354,9 @@ section .border-animated::after {
 
 .projects .container1 {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  padding: 80px;
-  margin-bottom: 60px;
-  row-gap: 20px;
-
-
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
 }
 
 .projects .card {
@@ -460,13 +440,124 @@ section .border-animated::after {
 }
 
 
+.review .container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 
+.review .container .reviews {
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.review .slider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+
+.review .container .reviews .heading {
+  color: var(--text);
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.review .container .reviews span {
+  color: var(--main-color);
+}
+
+.review .container .reviews .box {
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  width: 60%;
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 28px;
+  position: absolute;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.review .container .reviews .box.active {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.review .container .reviews .box .identity {
+  display: flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 10px;
+}
+
+.review .container .reviews .box .identity span {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.review .container .reviews .box .identity .avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid var(--text);
+}
+
+.review .container .reviews .box .identity .avatar img {
+  width: 100%;
+  height: 100%;
+}
+
+.review .container .reviews .box p {
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: bold;
+  line-height: 2.5;
+}
+
+.review .container .reviews .slide {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.review .container .reviews .slide i {
+  color: var(--main-color);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid var(--main-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.review .container .reviews .slide i:hover {
+  color: var(--alt-main);
+}
 
 .about .container {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  height: 100%;
 }
 
 .about .skills {
@@ -500,7 +591,7 @@ section .border-animated::after {
   height: 100%;
   background-color: var(--main-color);
   display: block;
-  transition: width 0.3s linear;
+  transition: 2s linear;
 }
 
 .about p {
@@ -518,6 +609,273 @@ section .border-animated::after {
   color: var(--main-color);
 }
 
+.statics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.stats {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
+}
+
+.stats div {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background-color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 32px;
+  font-weight: bold;
+  color: var(--text);
+  border: 4px solid var(--text);
+  background-image: linear-gradient(145deg, var(--main-color), var(--text));
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.stats span {
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.contact .contact-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+
+}
+
+.contact .contact-container .contact-info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: flex-start;
+  padding: 20px;
+  border: 5px solid var(--text);
+  border-radius: 20px;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.contact .contact-container .contact-info .info {
+  margin: auto 0;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.contact .contact-container .contact-info .info div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.contact .contact-container .contact-info .info i {
+  font-size: 1.5rem;
+  color: var(--main-color);
+  font-weight: bold
+}
+
+
+
+.contact .contact-container .social-media {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact .contact-container .social-media a {
+  font-size: 1.75rem;
+  color: var(--main-color);
+}
+
+.contact .contact-container .contact-info .heading {
+  border: 3px solid var(--text);
+  color: var(--text);
+  font-size: 1.75rem;
+  width: fit-content;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 45px;
+  cursor: pointer;
+  position: relative;
+  transition: .3s;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.contact .contact-container .contact-info .heading h3 {
+  z-index: 3;
+  transition: 0.5s;
+}
+
+.contact .contact-container .get-in .heading::after,
+.contact .contact-container .get-in .heading::before {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  content: '';
+  background-color: var(--background);
+  height: 110%;
+  width: 50%;
+  z-index: -1;
+  transition: .5s;
+}
+
+.contact .contact-container .heading::after,
+.contact .contact-container .heading::before {
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+  content: '';
+  background-color: var(--text);
+  height: 110%;
+  width: 50%;
+  z-index: -1;
+  transition: .5s;
+}
+
+.contact .contact-container .heading::after {
+  left: -135px;
+}
+
+
+.contact .contact-container .heading::before {
+  right: -135px;
+}
+
+.contact .contact-container .heading:hover::after {
+  left: 0;
+}
+
+.contact .contact-container .heading:hover::before {
+  right: 0;
+}
+
+.contact .contact-container .contact-info .heading:hover h3 {
+  color: var(--background);
+}
+
+.contact .get-in {
+  width: 50%;
+  height: 100%;
+  background-color: var(--background);
+  padding: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.contact .get-in .heading {
+  background-color: var(--text);
+  border: 2px solid var(--text);
+  margin: 0 auto;
+  color: var(--text);
+  font-size: 1.75rem;
+  width: fit-content;
+  padding: 10px;
+  font-weight: bold;
+  border-radius: 45px;
+  cursor: pointer;
+  position: relative;
+  transition: .3s;
+  overflow: hidden;
+  transition: 0.5s;
+  color: var(--background);
+}
+
+.get-in .heading:hover {
+  color: var(--text);
+}
+
+.contact .get-in.heading h3 {
+  z-index: 3;
+  transition: 0.5s;
+}
+
+.contact .message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  margin-bottom: 40px;
+  height: 100%;
+  width: 100%;
+}
+
+.contact .message form * {
+  border: none;
+  outline: none;
+  background-color: var(--text);
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+
+form input {
+  flex-basis: calc(50% - 10px);
+  padding: 10px;
+  margin-bottom: 20px;
+
+}
+
+form input,
+form textarea {
+  caret-color: var(--background);
+  color: var(--background);
+}
+
+form #name {
+  margin-right: 20px;
+}
+
+form input {
+  border-radius: 10px;
+}
+
+textarea {
+  flex-basis: 100%;
+  resize: none;
+  height: 150px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.contact .message form button {
+  background-color: var(--text);
+  color: var(--background);
+  font-weight: bold;
+  border-radius: 25px;
+  width: fit-content;
+  padding: 15px 40px;
+  margin: 20px auto 0 auto;
+  transition: 0.5s;
+}
+
+.contact .message form button:hover {
+  background-color: transparent;
+  color: var(--text);
+  border: 1px solid var(--text)
+}
+
+
+
 @keyframes rotate {
   0% {
     transform: rotate(0deg);
@@ -528,4 +886,22 @@ section .border-animated::after {
     transform: rotate(360deg);
     transform-origin: top left;
   }
+}
+
+
+
+
+
+section.active {
+  opacity: 1;
+  z-index: 3;
+  transform: translateX(0);
+}
+
+section.next {
+  transform: translateX(100%);
+}
+
+section.prev {
+  transform: translateX(-100%);
 }
