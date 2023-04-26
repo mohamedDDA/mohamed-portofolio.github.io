@@ -27,7 +27,7 @@ const icons = document.querySelectorAll('.slide i');
 const contactLink = document.querySelector('a[href="#contact"]');
 const popup = document.querySelector('.hire-me')
 let isTransitioning = false;
-let audio = new Audio("/images/click.mp3")
+let audio = new Audio("images/click.mp3")
 
 function audioCheck() {
     if (audiocheckbox.checked) {
