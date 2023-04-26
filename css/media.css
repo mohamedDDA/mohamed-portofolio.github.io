@@ -110,7 +110,6 @@
     }
 
     section .container {
-        margin: auto;
         overflow: hidden;
     }
 
@@ -160,7 +159,8 @@
     .settings {
         height: fit-content;
         position: absolute;
-        top: 10px;
+        left: 0;
+        top: 2%;
         right: 30px;
         transform: translateX(10px);
         display: flex;
@@ -191,7 +191,7 @@
 
     .social {
         position: absolute;
-        top: 10px;
+        top: 2%;
         left: 30px;
     }
 
