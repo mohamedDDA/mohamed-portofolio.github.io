@@ -87,6 +87,67 @@ body {
   position: relative;
 }
 
+#video-background {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -1;
+}
+
+/* body * {
+  z-index: 5454;
+} */
+
+.animation {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--background);
+  display: none;
+  z-index: -100;
+}
+
+.shown {
+  display: block;
+  z-index: 1000;
+}
+
+.shown div {
+  animation: water-drop 1s linear infinite;
+}
+
+.animation div {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform-origin: center center;
+}
+
+@keyframes water-drop {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(2);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 html.dark-mode {
   --background: #151515;
   --text: #EEEEEE;
@@ -650,31 +711,78 @@ section .border-animated * {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 80%;
   height: 100%;
-  width: 100%;
   border-radius: 20px;
-
+  position: relative;
+  margin: auto;
+  border: 2px solid var(--main-color);
 }
+
+.contact .contact-container .contact-info,
+.contact .contact-container .get-in {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  opacity: 0;
+  transition: 1s ease-in-out;
+  display: flex;
+  transform: scaleX(0);
+  transform-origin: center;
+  z-index: -1;
+  border-radius: 25px;
+  background-color: var(--background);
+  padding: 40px;
+}
+
 
 .contact .contact-container .contact-info {
-  width: 50%;
-  display: flex;
   flex-direction: column;
-  height: 100%;
-  align-items: flex-start;
-  padding: 20px;
-  border: 5px solid var(--text);
-  border-radius: 20px;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
+  align-items: center;
+
+
 }
 
-.contact .contact-container .contact-info .info {
-  margin: auto 0;
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
+
+.contact .contact-container .front {
+  z-index: 1;
+  transform: scaleX(100%);
+  transform-origin: center;
+  opacity: 100%;
 }
+
+
+.contact .contact-container .contact-info .info {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 95%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.contact .contact-container .contact-info .image {
+  width: 30%;
+  border-radius: 25px;
+  overflow: hidden;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+}
+
+.contact .contact-container .contact-info .image img {
+  width: 100%;
+  height: 100%;
+}
+
+
 
 .contact .contact-container .contact-info .info div {
   display: flex;
@@ -682,8 +790,12 @@ section .border-animated * {
   gap: 20px;
 }
 
+.contact .contact-container .contact-info .info span {
+  font-size: 1rem;
+}
+
 .contact .contact-container .contact-info .info i {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: var(--main-color);
   font-weight: bold
 }
@@ -692,6 +804,7 @@ section .border-animated * {
 
 .contact .contact-container .social-media {
   margin-top: auto;
+  margin-bottom: 30px;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -700,14 +813,20 @@ section .border-animated * {
 .contact .contact-container .social-media a {
   font-size: 1.75rem;
   color: var(--main-color);
+  transition: 0.3s;
+}
+
+.contact .contact-container .social-media a:hover {
+  color: var(--alt-main);
 }
 
 .contact .contact-container .contact-info .heading {
-  border: 3px solid var(--text);
   color: var(--text);
-  font-size: 1.75rem;
-  width: fit-content;
-  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
   font-weight: bold;
   border-radius: 45px;
   cursor: pointer;
@@ -717,55 +836,24 @@ section .border-animated * {
   background-color: transparent;
 }
 
-.contact .contact-container .contact-info .heading h3 {
-  z-index: 3;
-  transition: 0.5s;
-}
-
-.contact .contact-container .get-in .heading::after,
-.contact .contact-container .get-in .heading::before {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  content: '';
+.contact .contact-container .btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: var(--text);
+  border: 1px solid var(--main-color);
+  width: fit-content;
+  padding: 10px 20px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
   background-color: var(--background);
-  height: 110%;
-  width: 50%;
-  z-index: -1;
-  transition: .5s;
+  z-index: 25;
 }
 
-.contact .contact-container .heading::after,
-.contact .contact-container .heading::before {
-  top: 50%;
-  transform: translateY(-50%);
-  position: absolute;
-  content: '';
+.contact .contact-container .btn:hover {
   background-color: var(--text);
-  height: 110%;
-  width: 50%;
-  z-index: -1;
-  transition: .5s;
-}
-
-.contact .contact-container .heading::after {
-  left: -135px;
-}
-
-
-.contact .contact-container .heading::before {
-  right: -135px;
-}
-
-.contact .contact-container .heading:hover::after {
-  left: 0;
-}
-
-.contact .contact-container .heading:hover::before {
-  right: 0;
-}
-
-.contact .contact-container .contact-info .heading:hover h3 {
   color: var(--background);
 }
 
@@ -778,41 +866,33 @@ section .border-animated * {
   border-bottom-right-radius: 20px;
 }
 
-.contact .get-in .heading {
-  background-color: var(--text);
-  border: 2px solid var(--text);
-  margin: 0 auto;
-  color: var(--text);
-  font-size: 1.75rem;
-  width: fit-content;
-  padding: 10px;
+
+.contact .get-in .titile {
+  margin-bottom: auto;
+  margin-top: 20px;
   font-weight: bold;
-  border-radius: 45px;
+  font-size: 1.5rem;
   cursor: pointer;
-  position: relative;
-  transition: .3s;
-  overflow: hidden;
-  transition: 0.5s;
-  color: var(--background);
+  border: 1px solid var(--text);
+  padding: 10px 15px;
+  border-radius: 15px;
 }
 
-.get-in .heading:hover {
-  color: var(--text);
-}
 
-.contact .get-in.heading h3 {
-  z-index: 3;
-  transition: 0.5s;
+.contact .get-in .btn {
+  margin-top: auto;
+  /* margin-bottom: 20px; */
 }
 
 .contact .message {
   display: flex;
   justify-content: center;
+  flex-direction: column;
   align-items: center;
   margin-top: auto;
-  margin-bottom: 40px;
   height: 100%;
   width: 100%;
+  gap: 20px;
 }
 
 .contact .message form * {
@@ -874,6 +954,25 @@ textarea {
   border: 1px solid var(--text)
 }
 
+.hire-me {
+  position: fixed;
+  bottom: 0;
+  left:20px;
+  transition: 1s linear;
+  background-image: url(/images/hire-me.png);
+  width: 10%;
+  height: 30%;
+  background-size:cover ;
+  background-position: center;  
+  transform: translateY(300px);
+  filter: brightness(80%);
+}
+
+
+
+.hire-me:hover {
+  filter: brightness(120%);
+}
 
 
 @keyframes rotate {
