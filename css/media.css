@@ -18,8 +18,8 @@
     }
 
     .contact .contact-container .contact-info .info div span {
-        font-size: 1.5rem;
-        font-weight: bold
+        /* font-size: 1.5rem;
+        font-weight: bold */
     }
 
     .border-normal {
@@ -64,7 +64,7 @@
     }
 
     .contact .contact-container .contact-info .info span {
-        font-size: 18px;
+        font-size: 1rem;
         font-weight: bold
     }
 
@@ -269,41 +269,103 @@
         color: var(--background);
     }
 
+    .contact .container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+
     .contact .contact-container {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 60%;
+        height: 50%;
+        margin: auto;
+    }
+
+    .contact .contact-container .contact-info * {
+        margin: 0;
     }
 
     .contact .contact-container .contact-info {
         width: 100%;
-        border: none;
-        padding: 10px;
+        height: 100%;
+        justify-content: center;
         align-items: center;
-        height: fit-content;
+        gap: 20px;
+        padding: 10px;
     }
 
     .contact .contact-container .contact-info .info {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         gap: 10px;
-        margin: 20px 0;
+        top: 0;
+        transform: 0;
+        margin-top: 20px
     }
+
+    .contact .contact-container .contact-info .image {
+        width: 30%;
+        position: relative;
+        top: 0%;
+        left: 0%;
+        transform: translate(0);
+    }
+
+    .contact .contact-container .contact-info .info span {
+        font-size: 1rem;
+    }
+
+
+    .contact .contact-container .contact-info .btn {
+        margin-top: 20px;
+    }
+
 
 
     .contact .contact-container .contact-info .social-media {
         margin-top: 20px;
     }
 
+    .contact .contact-container .get-in .titile {
+        margin: 0;
+    }
+
+    .contact .contact-container .get-in .btn {
+        margin: 0;
+    }
+
     .contact .contact-container .get-in {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
         width: 100%;
         border: none;
         padding: 10px;
-        background-color: transparent;
-        height: fit-content;
+        height: 100%;
     }
 
-    .contact .message {
+    .contact .contact-container .get-in .message {
+        align-items: center;
         margin-top: 20px;
+        margin-bottom: auto;
     }
+
+    .contact .contact-container .get-in .message textarea {
+        height: 80px;
+    }
+
+
+
 
     .review .container .reviews {
         height: 70%;
@@ -335,92 +397,106 @@
     .stats div {
         width: 100px;
         height: 100px;
-        border-radius: 50%;}
+        border-radius: 50%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    html {
+        font-size: 12px;
+    }
+
+    .contact .contact-container .contact-info .info span {
+        font-size: 1rem;
+    }
+
+    .contact .contact-container {
+        width: 100%;
+        height: 60%;
+    }
+
+    .contact .contact-container .heading,
+    .contact .contact-container .title {
+        font-size: 0.8rem;
+    }
+
+    .contact .message form button {
+        padding: 5px 20px;
+        height: fit-content;
+        width: fit-content;
+    }
+
+    form #name {
+        margin-right: 0px;
     }
 
 
-    @media (max-width: 768px) {
-        html {
-            font-size: 12px;
-        }
-
-        .contact .contact-container .contact-info .info span {
-            font-size: 14px;
-            font-weight: bold
-        }
-
-        form input[type="text"] {
-            flex-basis: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        form #name {
-            margin-right: 0px;
-        }
-
-        .contact .contact-container .get-in .message {
-            align-items: flex-start;
-        }
-
-
-
-        .contact .contact-container .contact-info .info span {
-            font-size: 14px;
-            font-weight: bold
-        }
-
-        form input[type="text"],
-        form input[type="email"] {
-            flex-basis: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        form #name {
-            margin-right: 0px;
-        }
-
-        .contact .contact-container .get-in .message {
-            align-items: flex-start;
-        }
-
-        .projects .container {
-            width: 100%;
-            padding: 20px;
-            overflow-y: scroll;
-
-        }
-
-        .projects .container1 {
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-
-        }
-
-        .projects .container1 .card {
-            max-width: 100%;
-        }
-
-        .projects .container1 .card * {
-            max-width: 100%;
-        }
+    form input[type="text"],
+    form input[type="email"] {
+        flex-basis: 100%;
+        padding: 5px;
+        margin-bottom: 20px;
+        height: 30px;
     }
 
-    @media (min-width: 1024px) and (max-width: 1590px) {
-        .projects .container1 {
-            row-gap: 360px;
-        }
-
-        .about .container {
-            overflow-y: scroll;
-        }
-
-        form input {
-            flex-basis: 100%;
-            margin: 10px 0 10px 0;
-        }
-
-        form #name {
-            margin-right: 0;
-        }
+    form #name {
+        margin-right: 0px;
     }
+
+    .projects .container {
+        width: 100%;
+        padding: 20px;
+        overflow-y: scroll;
+
+    }
+
+    .projects .container1 {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        margin: auto 0;
+
+    }
+
+    .projects .container1 .card {
+        max-width: 100%;
+    }
+
+    .projects .container1 .card * {
+        max-width: 100%;
+    }
+
+    .review .container .slide {
+        margin-top: auto;
+        margin-bottom: 20px;
+    }
+
+    .hire-me {
+        display: none;
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1590px) {
+    .projects .container1 {
+        row-gap: 360px;
+    }
+
+    .about .container {
+        overflow-y: scroll;
+    }
+
+    form input {
+        flex-basis: 100%;
+        margin: 10px 0 10px 0;
+    }
+
+    form #name {
+        margin-right: 0;
+    }
+}
+
+
+@media (max-width: 400px) {
+    html {
+        font-size: 10px;
+    }
+}
