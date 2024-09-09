@@ -49,7 +49,6 @@
     .projects .container1 {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
         column-gap: 20px;
-        row-gap: 120px;
         width: 100%;
         overflow-y: scroll;
         height: 100%;
@@ -476,9 +475,7 @@
 }
 
 @media (min-width: 1024px) and (max-width: 1590px) {
-    .projects .container1 {
-        row-gap: 360px;
-    }
+
 
     .about .container {
         overflow-y: scroll;
