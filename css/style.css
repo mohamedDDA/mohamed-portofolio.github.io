@@ -425,40 +425,41 @@ section .border-animated * {
   background-color: var(--text);
   border: 3px solid var(--main-color);
   color: var(--background);
-  color: var(--text);
-  overflow: hidden;
   max-width: 280px;
-}
-
-.projects .container .card .image img {
-  width: 100%;
-  height: 100%;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .projects .card .image {
   position: relative;
-  width: 275px;
+  width: 100%;
   height: 160px;
+  overflow: hidden;
+}
+
+.projects .card .image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the area without distortion */
 }
 
 .projects .card .image::after {
+  content: '';
   position: absolute;
-  content: ' ';
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100%;
-  background-color: #1515158a;
-  transition: 0.3s;
-
+  inset: 0; /* Shorthand for top, right, bottom, left set to 0 */
+  background-color: rgba(21, 21, 21, 0.54); /* Uses `rgba` for clarity */
+  transition: background-color 0.3s ease;
 }
 
 .projects .card:hover .image::after {
   background-color: transparent;
 }
 
-.projects .card .text {
+.projects .text {
   padding: 20px;
+  flex-grow: 1; /* Ensures that the text area expands naturally */
 }
 
 .projects .card h3 {
@@ -470,35 +471,35 @@ section .border-animated * {
 .projects .card p {
   font-size: 0.875rem;
   font-weight: 400;
-  line-height: 1.5;
   margin-bottom: 20px;
   color: var(--background);
 }
 
-.projects .card .btn {
+.projects .btn {
   background-color: var(--alt-main);
   border: 1px solid transparent;
   border-radius: 5px;
   color: var(--background);
   cursor: pointer;
   display: inline-block;
-  width: fit-content;
-  height: fit-content;
-  font-size: 1rem;
   padding: 10px 20px;
+  font-size: 1rem;
+  width: 220px;
   text-align: center;
   text-decoration: none;
-  transition: 0.3s;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  margin: auto auto 10px auto;
 }
 
 .projects .card a {
-  transition: 0.3s;
+  text-decoration: none; /* No need to repeat this property inside `.btn` */
 }
 
 .projects .card a:hover .btn {
   background-color: var(--main-color);
   border-color: var(--background);
 }
+
 
 
 .review .container {
@@ -590,7 +591,7 @@ section .border-animated * {
   font-size: 1rem;
   color: var(--text);
   font-weight: bold;
-  line-height: 2.5;
+  line-height: 1.3;
 }
 
 .review .container .reviews .slide {
@@ -957,13 +958,13 @@ textarea {
 .hire-me {
   position: fixed;
   bottom: 0;
-  left:20px;
+  left: 20px;
   transition: 1s linear;
   background-image: url(/images/hire-me.png);
   width: 10%;
   height: 30%;
-  background-size:cover ;
-  background-position: center;  
+  background-size: cover;
+  background-position: center;
   transform: translateY(300px);
   filter: brightness(80%);
 }
